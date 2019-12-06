@@ -13,7 +13,7 @@ class PageListView(ListView):
 
     def get(self, request):
         """GET a list of Pages."""
-        pages = self.get_queryset().all()
+        pages = self.get_queryset().all().order_by('-created')
         username = None
         auth = request.user.is_authenticated
         if auth:
